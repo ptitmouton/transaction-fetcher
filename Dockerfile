@@ -14,8 +14,8 @@ RUN apt-get update && \
   libaqbanking44 \
   && rm -rf /var/lib/apt/lists/*
 
-RUN wget "https://github.com/ptitmouton/aqbanking2json/releases/download/v0.0.3/aqbanking2json-linux-arm64" -O /usr/local/bin/aqbanking2json && \
-  chmod +x /usr/local/bin/aqbanking2json
+COPY aqbanking2json-install.sh /tmp/aqbanking2json-install.sh
+RUN bash /tmp/aqbanking2json-install.sh && rm /tmp/aqbanking2json-install.sh
 
 
 WORKDIR /app
